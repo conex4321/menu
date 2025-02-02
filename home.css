@@ -260,7 +260,7 @@ hr {
   object-fit: cover;
   position: absolute;
   right: 20px;
-  margin-top: 2%;
+  margin-top: 4%;
   display: flex;
 }
 .im2 {
@@ -268,14 +268,14 @@ hr {
   object-fit: cover;
   position: absolute;
   left: 30px;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 .im3 {
   width: 400px;
   object-fit: cover;
   position: absolute;
   right: 50px;
-  margin-top: 2%;
+  margin-top: 5%;
   border: none;
 }
 .im4 {
