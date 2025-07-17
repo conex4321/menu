@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu with Crossed Fork & Knife</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .nav-container {
+      position: relative;
+      padding: 20px;
+    }
+
+    .menu-icon {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .menu-icon i {
+      font-size: 30px;
+      color: #333;
+      transition: all 0.4s ease;
+      position: absolute;
+    }
+
+    .fa-bars {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .fa-utensils,
+    .fa-knife-kitchen {
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.4s ease;
+    }
+
+    .menu-icon.active .fa-bars {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    .menu-icon.active .fa-utensils,
+    .menu-icon.active .fa-knife-kitchen {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    .fa-utensils {
+      left: -8px;
+      transform: rotate(-45deg);
+    }
+
+    .fa-knife-kitchen {
+      right: 8px;
+      transform: rotate(90deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #f9f9f9;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 20px;
+      min-width: 150px;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: all 0.5s ease;
+      z-index: 10;
+    }
+
+    .dropdown-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .dropdown-menu.show {
+      display: flex;
+      opacity: 1;
+      transform: scale(1.05);
+      animation: bounceIn 0.5s;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      80% { transform: scale(0.95); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav-container">
+  <div id="menu-toggle" class="menu-icon">
+    <i class="fas fa-bars"></i>
+    <i class="fas fa-utensils"></i>
+    <i class="fas fa-knife-kitchen"></i>
+  </div>
+
+  <div id="dropdown" class="dropdown-menu">
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const dropdown = document.getElementById('dropdown');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    dropdown.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!menuToggle.contains(event.target) && !dropdown.contains(event.target)) {
+      menuToggle.classList.remove('active');
+      dropdown.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

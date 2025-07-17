@@ -79,8 +79,8 @@ li:hover {
   align-items: center;
   justify-content: center;
   position: sticky;
-  top: 40px;
-  padding-top: 3%;
+  top: 5%;
+  padding-top: 2%;
   padding-bottom: 2%;
   background-color: black;
   z-index: 99;
@@ -100,6 +100,7 @@ button {
   border: none;
   font-size: 20px;
   display: flex;
+  
 }
 button:hover {
   background-color: white;
@@ -114,6 +115,7 @@ button:hover {
   flex-direction: column;
   background-color: rgb(228, 211, 211);
 }
+
 .tmenu1 {
   font-weight: bold;
   margin-top: 10%;
@@ -137,7 +139,7 @@ button:hover {
 table {
   border: none;
   padding-top: 30px;
-  width: 45%;
+  width: 60%;
   margin-bottom: 5%;
 }
 .win {
@@ -168,7 +170,8 @@ hr {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-bottom: 5%;
+  padding-bottom: 4.3%;
+  margin-top: 3%;
 }
 .tmenu2 {
   font-weight: bold;
@@ -212,6 +215,216 @@ hr {
   display: flex;
   justify-content: space-between;
 }
+.nav-container, .im1s , .im2s, .im3s, .im4s, .im5s {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+    .tablebr {
+        display: block;
+        flex-direction: column;
+        gap: 20px; /* spacing between items */
+        align-items: center;
+        padding-left: 10%;
+        font-size: 16px; /* slightly larger font for readability */
+        position: relative;
+        
+        
+    }
+   .menu {
+      display: flex;
+      padding-left: 0%;
+      padding-right: 0%;
+      flex-direction: column;
+      background-color: rgb(228, 211, 211);
+    }
+    .win {
+      width: 70%;
+      padding-left: 5%;
+      
+    }
+    table {
+      border: none;
+      padding-top: 30px;
+      width: 90%;
+      margin-bottom: 5%;
+    }
+    .cl {
+      background-image: url(./image/back2.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-bottom: 4.3%;
+      margin-top: 30px;
+    }
+    .header {
+      display: flex;
+      align-content: center;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 20%;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20%;
+    }
+    .h1 {
+      padding-left: 30%;
+      padding-right: 30%;
+      font-size: 50px;
+      padding-bottom: 16%;
+      padding-top: 6%;
+     
+      color: whitesmoke;
+    }
+    .name {
+      font-weight: bolder;
+      font-size: 450%;
+      padding-top: 5%;
+      padding-bottom: 15%;
+      color: antiquewhite;
+    }
+    .namep {
+      font-family: italic;
+      padding-top: 5%;
+      color: rgb(224, 182, 102);
+      font-size: 25px;
+    }
+    .tname {
+      margin-left: 5%;
+      color: orange;
+      text-shadow: 0, 0, 5px, 0;
+      font-size: 30px;
+      font-weight: bolder;
+      width: 30%;
+    }
+    .plink {
+      float: right;
+      margin-right: 15%;
+      margin-left: auto;
+      list-style: none;
+      display: flex;
+      gap: 10%;
+      display: none;
+    }
+    .but, .im1, .im2, .im3, .im4, .im5 {
+        display: none;
+      }
+     
+     .nav-container {
+    position: relative;
+    z-index: 100;
+    right: -50%;
+    display: block;
+    
+}
+
+.menu-icon {
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.3s;
+}
+
+.menu-icon .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+
+.menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 12px);
+    background: #FF5722;
+}
+
+.menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -12px);
+    background: #FF5722;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 300px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.5s ease;
+     background: rgba(255, 255, 255, 0.3); /* transparent white */
+  backdrop-filter: blur(10px); /* frosted glass effect */
+}
+
+
+
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1.05);
+    animation: bounceIn 0.5s;
+}
+
+/* Bounce animation */
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.dropdown-menu button, .dropdown-menu a {
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: 1px;
+  border-radius: 10px;
+  background-color: orange;
+  box-shadow: 0, 2, 2, 0;
+  color: white;
+  transition: 0.5s;
+  border: none;
+  font-size: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 80%;
+  
+}
+hr{
+  width: 80%;
+  align-self: center;
+}
+.im1s, .im2s, .im3s, .im4s, .im5s {
+  width: 450px;
+  height: 220px;
+  object-fit: cover;
+  margin-left: 15px;
+  top: 10%;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+}
+.im5s{
+  margin-right: 20px;
+}
+    
+  }
 .tmenu4 {
   font-weight: bold;
   margin-top: 10%;
@@ -256,13 +469,16 @@ hr {
   margin-left: 10%;
 }
 .im1 {
-  width: 500px;
+  width: 30%;
   object-fit: cover;
   position: absolute;
   right: 20px;
   margin-top: 4%;
-  display: flex;
+
+  margin-left: 60px;
+
 }
+
 .im2 {
   width: 400px;
   object-fit: cover;
@@ -271,11 +487,11 @@ hr {
   margin-top: 4%;
 }
 .im3 {
-  width: 400px;
+  width: 20%;
   object-fit: cover;
   position: absolute;
   right: 50px;
-  margin-top: 5%;
+  margin-top: 2%;
   border: none;
 }
 .im4 {

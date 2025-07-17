@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav-container {
+    position: relative;
+    z-index: 100;
+}
+
+.menu-icon {
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.3s;
+}
+
+.menu-icon .bar {
+    height: 4px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
+
+.menu-icon.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 12px);
+    background: #FF5722;
+}
+
+.menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -12px);
+    background: #FF5722;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 150px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.5s ease;
+}
+
+.dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1.05);
+    animation: bounceIn 0.5s;
+}
+
+/* Bounce animation */
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+    <div id="menu-toggle" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div id="dropdown" class="dropdown-menu">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+const dropdown = document.getElementById('dropdown');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    dropdown.classList.toggle('show');
+});
+
+// Close when clicking outside
+document.addEventListener('click', function(event) {
+    if (!menuToggle.contains(event.target) && !dropdown.contains(event.target)) {
+        menuToggle.classList.remove('active');
+        dropdown.classList.remove('show');
+    }
+});
+
+</script>
+</body>
+</html>
